@@ -1,6 +1,7 @@
 package com.example.Blockchain_App.Activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -80,6 +81,8 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+
+
     private void uploadImage()
     {
         File file = new File(filePath);
@@ -99,7 +102,7 @@ public class HomeActivity extends AppCompatActivity
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(HomeActivity.this,""+ t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(HomeActivity.this,"exception: "+ t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -116,6 +119,7 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     private void dispatchPictureTakerAction()
     {
         Intent takePic = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

@@ -1,4 +1,4 @@
-package com.example.Blockchain_App.Activity;
+package com.example.Blockchain_App.Core;
 
 import android.Manifest;
 import android.content.Intent;
@@ -147,12 +147,12 @@ public class HomeActivity extends AppCompatActivity
         return image;
     }
 
-    private void init()
-    {
-        btnTakePic = findViewById(R.id.btnTakePic);
-        btn_upload = findViewById(R.id.btn_upload);
-        imageView = findViewById(R.id.img_clicked);
-    }
+//    private void init()
+//    {
+//        btnTakePic = findViewById(R.id.btnTakePic);
+//        btn_upload = findViewById(R.id.btn_upload);
+//        imageView = findViewById(R.id.img_clicked);
+//    }
 }
 
 

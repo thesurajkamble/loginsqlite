@@ -1,4 +1,4 @@
-package com.example.Blockchain_App.Activity;
+package com.example.Blockchain_App.Core;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import static android.content.ContentValues.TAG;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_SignIn extends AppCompatActivity {
 
     private Button btn_signin;
     private AutoCompleteTextView email,pass;
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.Activity_SignIn);
         mAuth = FirebaseAuth.getInstance();
         init();
 
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         tv_crate_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent CreateAccountIntent = new Intent(MainActivity.this,CreateAccountActivity.class);
+                Intent CreateAccountIntent = new Intent(Activity_SignIn.this, activity_signup.class);
                 startActivity(CreateAccountIntent);
             }
         });
@@ -63,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
-                            Intent SigninIntent = new Intent(MainActivity.this,HomeActivity.class);
+                            Intent SigninIntent = new Intent(Activity_SignIn.this,HomeActivity.class);
                             startActivity(SigninIntent);
 
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.makeText(Activity_SignIn.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent home = new Intent(MainActivity.this,HomeActivity.class);
+            Intent home = new Intent(Activity_SignIn.this,HomeActivity.class);
             startActivity(home);
         }
     }

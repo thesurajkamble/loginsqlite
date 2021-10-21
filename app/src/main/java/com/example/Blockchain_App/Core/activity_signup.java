@@ -1,4 +1,4 @@
-package com.example.Blockchain_App.Activity;
+package com.example.Blockchain_App.Core;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Blockchain_App.R;
@@ -20,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import static android.content.ContentValues.TAG;
 
-public class CreateAccountActivity extends AppCompatActivity {
+public class activity_signup extends AppCompatActivity {
 
     private Button btn_createAcc;
     private AutoCompleteTextView email,pass;
@@ -31,7 +30,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.Activity_SignUp);
         mAuth = FirebaseAuth.getInstance();
         init();
 
@@ -52,13 +51,13 @@ public class CreateAccountActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            Intent homeIntent = new Intent(CreateAccountActivity.this,HomeActivity.class);
+                            Intent homeIntent = new Intent(activity_signup.this,HomeActivity.class);
                             startActivity(homeIntent);
 
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
+                            Toast.makeText(activity_signup.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/blockchain"
-    tools:context=".Activity.CreateAccountActivity">
+    tools:context=".Core.activity_signup">
 
 
 
@@ -16,15 +16,6 @@
         android:layout_marginTop="360dp"
         android:layout_marginEnd="50dp"
         android:orientation="vertical">
-
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="15dp"
-            android:contentDescription="Sign in text on registration activity"
-            android:src="@drawable/sign_in" />
 
 
         <AutoCompleteTextView

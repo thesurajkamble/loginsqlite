@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="326dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="414dp"
+        android:layout_marginRight="47dp"
         android:background="@drawable/btnsignin_gradient"
         android:text="Blockchain Registration "
         android:textColor="#FFFFFF" />
@@ -26,10 +26,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="414dp"
-        android:layout_marginRight="46dp"
+        android:layout_marginTop="479dp"
+        android:layout_marginRight="43dp"
         android:background="@drawable/btnsignin_gradient"
         android:text="User Verification "
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="540dp"
+        android:layout_marginRight="45dp"
+        android:background="@drawable/btnsignin_gradient"
+        android:text="Logout "
         android:textColor="#FFFFFF" />
 
 

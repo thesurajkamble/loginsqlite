@@ -9,6 +9,12 @@ import retrofit2.http.Part;
 
 public interface UploadApis {
     @Multipart
-    @POST("receive")
-    Call<RequestBody> uploadImage(@Part MultipartBody.Part part, @Part("username") RequestBody requestBody1);  //MultipartBody.Part part
+    @POST("register")
+    // uploadImage -> Register
+    Call<RequestBody> Register(@Part MultipartBody.Part part, @Part("username") RequestBody requestBody1);  //MultipartBody.Part part
+
+    @Multipart
+    @POST("verify")
+    // verification route
+    Call<RequestBody> Verify(@Part MultipartBody.Part part, @Part("username") RequestBody requestBody2);  //MultipartBody.Part part
 }

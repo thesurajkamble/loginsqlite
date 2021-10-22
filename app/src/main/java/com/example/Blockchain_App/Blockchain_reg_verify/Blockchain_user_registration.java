@@ -46,9 +46,12 @@ public class Blockchain_user_registration extends AppCompatActivity
 
     String pathToFile;
     String filePath = "Pictures/";
-    private Button btn_register;
+    private Button btn_register, btn_takepic;
     private ImageView imageView;
     private String UserDetails = "";
+
+    private boolean  flag = false;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
 
 
@@ -69,10 +72,21 @@ public class Blockchain_user_registration extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-               btn_register.setEnabled(false);
-                dispatchPictureTakerAction();
+                if (!flag) {
+                    btn_register.setEnabled(false);
+                    dispatchPictureTakerAction();
+                } else{
+                    Toast.makeText(getApplicationContext(),"No Selfie taken",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btn_takepic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 uploadImage();
-                btn_register.setEnabled(true);
+               flag = true;
+
             }
         });
 
@@ -101,7 +115,7 @@ public class Blockchain_user_registration extends AppCompatActivity
 
         UploadApis uploadApis = retrofit.create(UploadApis.class);
         // make the network API call PARAM : image and username
-        Call call = uploadApis.uploadImage(parts, username);
+        Call call = uploadApis.Register(parts, username);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -162,6 +176,7 @@ public class Blockchain_user_registration extends AppCompatActivity
     private void init()
     {
         btn_register = findViewById(R.id.btn_blockchain_reg);
+        btn_takepic = findViewById(R.id.btn_takepic);
         imageView = findViewById(R.id.img_capture);
     }
 }

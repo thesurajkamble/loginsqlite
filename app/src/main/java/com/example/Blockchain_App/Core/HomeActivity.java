@@ -25,6 +25,7 @@ import com.example.Blockchain_App.Blockchain_reg_verify.Blockchain_user_verifica
 import com.example.Blockchain_App.Network.NetworkClient;
 import com.example.Blockchain_App.Network.UploadApis;
 import com.example.Blockchain_App.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,13 +45,15 @@ import static android.os.Environment.getExternalStoragePublicDirectory;
 public class HomeActivity extends AppCompatActivity
 {
 
-    private Button btn_reg, btn_verify;
+    private Button btn_reg, btn_verify,btn_logout;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mAuth = FirebaseAuth.getInstance();
         init();
 
         btn_reg.setOnClickListener(new View.OnClickListener()
@@ -75,13 +78,28 @@ public class HomeActivity extends AppCompatActivity
             }
         });
 
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logout();
+            }
+        });
+
     }
 
     private void init()
   {
        btn_reg = findViewById(R.id.btn_blockchain_reg);
        btn_verify = findViewById(R.id.btn_blockchain_verify);
+       btn_logout = findViewById(R.id.btn_logout);
+   }
 
+   private void Logout()
+   {
+       FirebaseAuth.getInstance().signOut();
+       Intent logoutIntent = new Intent(getApplicationContext(), Activity_SignIn.class);
+       startActivity(logoutIntent);
+       finish();
    }
 }
 

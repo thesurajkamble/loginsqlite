@@ -11,12 +11,7 @@
         android:required="true" />
 
     <application
-<<<<<<< HEAD
-=======
         android:requestLegacyExternalStorage="true"
-        android:networkSecurityConfig="@xml/networksecurityconfig"
-        android:usesCleartextTraffic="true"
->>>>>>> 7654d970d8debc78c31e99e8edf3c11a78d1252c
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Blockchain App"
